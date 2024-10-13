@@ -19,7 +19,7 @@ const createAdminClient = async () => {
   };
 };
 
-const createSesstionClient = async (session) => {
+const createSessionClient = async (session) => {
   const client = new Client()
     .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT)
     .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT);
@@ -38,4 +38,4 @@ const createSesstionClient = async (session) => {
   };
 };
 
-export { createAdminClient, createSesstionClient };
+export { createAdminClient, createSessionClient };

@@ -4,10 +4,10 @@ import rooms from '@/data/rooms.json';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaChevronLeft } from 'react-icons/fa';
+import getSingleRoom from '@/app/actions/getSingleRoom';
 
-function RoomPage({ params }) {
-  const room = rooms.find((room) => room.$id === params.id);
-
+async function RoomPage({ params }) {
+  const room = await getSingleRoom(params.id);
   if (!room) {
     return <Heading title={'No room found'} />;
   }
