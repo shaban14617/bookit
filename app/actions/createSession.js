@@ -1,10 +1,9 @@
 'use server';
 
-import { createAdminClient, createSessionClient } from '@/config/appwrite';
+import { createAdminClient } from '@/config/appwrite';
 import { cookies } from 'next/headers';
 
 export default async function createSession(previousState, formData) {
-  console.log(formData);
   const email = formData.get('email');
   const password = formData.get('password');
 

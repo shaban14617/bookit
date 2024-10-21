@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import logo from '@/assets/images/logo.svg';
 import Image from 'next/image';
@@ -6,21 +7,25 @@ import Link from 'next/link';
 import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding } from 'react-icons/fa';
 import destroySession from '@/app/actions/destroySession';
 import { toast } from 'react-toastify';
+import { useAuth } from '@/context/authContext';
 
 function Header() {
   const router = useRouter();
+
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
 
   const handleLogout = async () => {
     const { success, error } = await destroySession();
 
     if (success) {
+      setIsAuthenticated(false);
       router.push('/login');
     } else {
       toast.error(error);
     }
   };
   return (
-    <header className="bg-gray-100">
+    <header className="bg-[#F5F0F6]">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -36,23 +41,27 @@ function Header() {
               <div className="ml-10 flex items-baseline space-x-4">
                 <Link
                   href="/"
-                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
                 >
                   Rooms
                 </Link>
-                {/* <!-- Logged In Only --> */}
-                <Link
-                  href="/bookings"
-                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
-                >
-                  Bookings
-                </Link>
-                <Link
-                  href="/rooms/add"
-                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
-                >
-                  Add Room
-                </Link>
+
+                {isAuthenticated && (
+                  <>
+                    <Link
+                      href="/bookings"
+                      className="rounded-md px-3 py-2 text-sm font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+                    >
+                      Bookings
+                    </Link>
+                    <Link
+                      href="/rooms/add"
+                      className="rounded-md px-3 py-2 text-sm font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+                    >
+                      Add Room
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -60,28 +69,37 @@ function Header() {
           <div className="ml-auto">
             <div className="ml-4 flex items-center md:ml-6">
               {/* <!-- Logged Out Only --> */}
-              <Link
-                href="/login"
-                className="mr-3 text-gray-800 hover:text-gray-600"
-              >
-                <FaSignInAlt className="inline mr-1" /> Login
-              </Link>
-              <Link
-                href="/register"
-                className="mr-3 text-gray-800 hover:text-gray-600"
-              >
-                <FaUser className="inline mr-1" /> Register
-              </Link>
-              <Link href="/rooms/my">
-                <FaBuilding className="inline mr-1" /> My Rooms
-              </Link>
-              <button
-                onClick={handleLogout}
-                href="/login"
-                className="mx-3 text-gray-800 hover:text-gray-600"
-              >
-                <FaSignOutAlt className="inline mr-1" /> Sign Out
-              </button>
+              {!isAuthenticated && (
+                <>
+                  <Link
+                    href="/login"
+                    className="mr-3 text-[#2B4162] hover:text-[#2B4162]"
+                  >
+                    <FaSignInAlt className="inline mr-1" /> Login
+                  </Link>
+                  <Link
+                    href="/register"
+                    className="mr-3 text-[#2B4162] hover:text-[#2B4162]"
+                  >
+                    <FaUser className="inline mr-1" /> Register
+                  </Link>
+                </>
+              )}
+
+              {isAuthenticated && (
+                <>
+                  <Link href="/rooms/my">
+                    <FaBuilding className="inline mr-1" /> My Rooms
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    href="/login"
+                    className="mx-3 text-[#2B4162] hover:text-[#2B4162]"
+                  >
+                    <FaSignOutAlt className="inline mr-1" /> Sign Out
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -92,23 +110,27 @@ function Header() {
         <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
           <Link
             href="/"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
+            className="block rounded-md px-3 py-2 text-base font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
           >
             Rooms
           </Link>
-          {/* <!-- Logged In Only --> */}
-          <Link
-            href="/bookings"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
-          >
-            Bookings
-          </Link>
-          <Link
-            href="/rooms/add"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
-          >
-            Add Room
-          </Link>
+          {isAuthenticated && (
+            <>
+              {/* <!-- Logged In Only --> */}
+              <Link
+                href="/bookings"
+                className="block rounded-md px-3 py-2 text-base font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+              >
+                Bookings
+              </Link>
+              <Link
+                href="/rooms/add"
+                className="block rounded-md px-3 py-2 text-base font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+              >
+                Add Room
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>
