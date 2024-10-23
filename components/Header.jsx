@@ -107,7 +107,7 @@ function Header() {
 
       {/* <!-- Mobile menu --> */}
       <div className="md:hidden">
-        <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+        <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3 ">
           <Link
             href="/"
             className="block rounded-md px-3 py-2 text-base font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"

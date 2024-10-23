@@ -2,9 +2,9 @@ import { Client, Databases, Account, Storage } from 'node-appwrite';
 
 const createAdminClient = async () => {
   const client = new Client()
-    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT)
-    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT)
-    .setKey(process.env.NEXT_APPWRITE_KEY); // Your secret API key
+    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT) //End point
+    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT) // Project Name
+    .setKey(process.env.NEXT_APPWRITE_KEY); // API KEY
 
   return {
     get account() {
