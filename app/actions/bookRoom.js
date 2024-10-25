@@ -4,6 +4,7 @@ import { cookies } from 'next/headers';
 import { ID } from 'node-appwrite';
 import { redirect } from 'next/navigation';
 import checkAuth from './checkAuth';
+import { revalidatePath } from 'next/cache';
 
 export default async function bookRoom(perviousState, formData) {
   const sessionCookie = cookies().get('appwrite-session');
@@ -43,9 +44,9 @@ export default async function bookRoom(perviousState, formData) {
     };
 
     // Create Bookings
-    const newBooking = await databases.createCollection(
+    const newBooking = await databases.createDocument(
       process.env.NEXT_PUBLIC_APPWRITE_DATABASE,
-      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ROOMS,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_BOOKINGS,
       ID.unique(),
       bookingData
     );

@@ -1,12 +1,12 @@
 'use client';
-import createRoom from '@/app/actions/createRoom';
+import bookRoom from '@/app/actions/bookRoom';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useFormState } from 'react-dom';
 import { toast } from 'react-toastify';
 
 function BookingForm({ room }) {
-  const [state, formAction] = useFormState(createRoom, {});
+  const [state, formAction] = useFormState(bookRoom, {});
   const router = useRouter();
 
   useEffect(() => {
