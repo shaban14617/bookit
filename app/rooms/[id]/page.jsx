@@ -65,7 +65,7 @@ async function RoomPage({ params }) {
             </ul>
           </div>
         </div>
-        <BookingForm />
+        <BookingForm room={room} />
       </div>
     </>
   );
