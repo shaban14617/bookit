@@ -41,7 +41,7 @@ function Header() {
               <div className="ml-10 flex items-baseline space-x-4">
                 <Link
                   href="/"
-                  className="rounded-md px-3 py-2 text-sm font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white"
                 >
                   Rooms
                 </Link>
@@ -50,13 +50,13 @@ function Header() {
                   <>
                     <Link
                       href="/bookings"
-                      className="rounded-md px-3 py-2 text-sm font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+                      className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white"
                     >
                       Bookings
                     </Link>
                     <Link
                       href="/rooms/add"
-                      className="rounded-md px-3 py-2 text-sm font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+                      className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-700 hover:text-white"
                     >
                       Add Room
                     </Link>
@@ -73,13 +73,13 @@ function Header() {
                 <>
                   <Link
                     href="/login"
-                    className="mr-3 text-[#2B4162] hover:text-[#2B4162]"
+                    className="mr-3 text-black hover:text-black"
                   >
                     <FaSignInAlt className="inline mr-1" /> Login
                   </Link>
                   <Link
                     href="/register"
-                    className="mr-3 text-[#2B4162] hover:text-[#2B4162]"
+                    className="mr-3 text-black hover:text-black"
                   >
                     <FaUser className="inline mr-1" /> Register
                   </Link>
@@ -94,7 +94,7 @@ function Header() {
                   <button
                     onClick={handleLogout}
                     href="/login"
-                    className="mx-3 text-[#2B4162] hover:text-[#2B4162]"
+                    className="mx-3 text-black hover:text-black"
                   >
                     <FaSignOutAlt className="inline mr-1" /> Sign Out
                   </button>
@@ -110,7 +110,7 @@ function Header() {
         <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3 ">
           <Link
             href="/"
-            className="block rounded-md px-3 py-2 text-base font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+            className="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-700 hover:text-white"
           >
             Rooms
           </Link>
@@ -119,13 +119,13 @@ function Header() {
               {/* <!-- Logged In Only --> */}
               <Link
                 href="/bookings"
-                className="block rounded-md px-3 py-2 text-base font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+                className="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-700 hover:text-white"
               >
                 Bookings
               </Link>
               <Link
                 href="/rooms/add"
-                className="block rounded-md px-3 py-2 text-base font-medium text-[#2B4162] hover:bg-gray-700 hover:text-white"
+                className="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-700 hover:text-white"
               >
                 Add Room
               </Link>
