@@ -4,7 +4,7 @@
 
 ## Deployed
 
-`https://bookit-chi-six.vercel.app/`
+(`https://bookit-chi-six.vercel.app/`)
 
 ## Features
 
