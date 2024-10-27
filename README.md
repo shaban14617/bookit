@@ -19,5 +19,24 @@
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/bookit.git
+   git clone https://github.com/shaban14617/bookit.git
    cd bookit
+2. **Clone the repository**:
+   ```bash
+   Set up Appwrite:
+
+- Create an Appwrite account.
+Set up your database and add collections for User, Room, and Booking with the necessary attributes.
+
+2. **Configure environment variables**:
+   ```bash
+   
+- Add your Appwrite endpoint and project ID in .env as per Appwrite configuration.
+
+  ## Usage Instructions
+  
+1.Login: Create an account or log in to access the application.
+2.Browse Rooms: Explore available rooms with details about amenities, size, and hourly price.
+3.Add a Room: Use the “Add Room” feature to create new listings with images and detailed specifications.
+4.Book a Room: Reserve a room for any available time.
+5.Manage Bookings: View and manage your bookings and added rooms in the user dashboard.
