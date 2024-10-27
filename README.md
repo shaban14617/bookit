@@ -2,6 +2,10 @@
 
 **Bookit** is an hourly room booking application where users can browse, book, and manage rooms. Each room comes with unique features like amenities, square footage, pricing, and an image, providing users with a detailed view of available spaces. Users can add new rooms, book available rooms, and track their bookings easily.
 
+## Deployed
+
+`https://bookit-chi-six.vercel.app/`
+
 ## Features
 
 - **Room Listings**: Browse rooms with specific details, including amenities, size, price per hour, and images.
